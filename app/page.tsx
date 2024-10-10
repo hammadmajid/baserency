@@ -1,6 +1,6 @@
 import {Button} from "@/components/ui/button"
 import Link from "next/link";
-import {ArrowRight, Github} from 'lucide-react';
+import {ArrowRight, Info} from 'lucide-react';
 import * as React from "react";
 
 export default function Home() {
@@ -18,8 +18,8 @@ export default function Home() {
                     </Link>
                 </Button>
                 <Button variant="outline" size="icon" asChild>
-                    <Link href="https://github.com/hammadmajid/baserency" target="_blank">
-                        <Github/>
+                    <Link href="/about">
+                        <Info/>
                     </Link>
                 </Button>
             </div>
