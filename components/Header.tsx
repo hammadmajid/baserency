@@ -38,7 +38,7 @@ function ModeToggle() {
 
 export function Header() {
     return (
-        <header className="flex justify-between items-center p-6">
+        <header className="flex justify-between items-center p-6 md:w-3/4 xl:w-1/2 md:mx-auto">
             <Link href="/" className="font-semibold text-lg">baserency</Link>
             <div className="flex justify-center items-center gap-2">
                 <Button variant="outline" size="icon" asChild>
