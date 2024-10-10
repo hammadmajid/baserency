@@ -2,18 +2,18 @@
 
 import { Button } from "@/components/ui/button";
 import {
-    Command,
-    CommandEmpty,
-    CommandGroup,
-    CommandInput,
-    CommandItem,
-    CommandList,
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
 } from "@/components/ui/command";
 import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
 import {
-    Popover,
-    PopoverContent,
-    PopoverTrigger,
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
 } from "@/components/ui/popover";
 import * as React from "react";
 
@@ -107,7 +107,8 @@ function CurrencyList({
               value={currency.code}
               onSelect={(value) => {
                 setSelectedCurrency(
-                  currencies.find((currency) => currency.code === value) || null
+                  currencies.find((currency) => currency.code === value) ||
+                    null,
                 );
                 setOpen(false);
               }}
@@ -121,19 +122,22 @@ function CurrencyList({
   );
 }
 
+// import dynamic from "next/dynamic";
+
 function useWindowDimensions() {
-  const [dimensions, setDimensions] = React.useState({
-    width: window.innerWidth,
-    height: window.innerHeight,
-  });
+  const [width, setWidth] = React.useState(0);
+  const [height, setHeight] = React.useState(0);
+
+  const handleWindowResize = () => {
+    setWidth(window.innerWidth);
+    setHeight(window.innerHeight);
+  };
 
   React.useEffect(() => {
-    const handleResize = () => {
-      setDimensions({ width: window.innerWidth, height: window.innerHeight });
-    };
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    handleWindowResize();
+    window.addEventListener("resize", handleWindowResize);
+    return () => window.removeEventListener("resize", handleWindowResize);
   }, []);
 
-  return dimensions;
+  return { width, height };
 }
